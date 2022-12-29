@@ -1,5 +1,6 @@
 @echo off
 set _tempid=%random%
+set ZHg5=dx9ware
 title %_tempid% [%date%]
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -27,8 +28,8 @@ goto :var
 :var
 set 1=%username%
 set 2=%appdata%
-set dx9folder=false
-set dx9dll=false
+set ZHg5Zm9sZGVy=false
+set ZHg5ZGxs=false
 cd C:\ProgramData
 md $CheckAgent$
 cls
@@ -41,21 +42,19 @@ IF ERRORLEVEL == 2 (
 	EXIT /B 1
 )
 cls
-if exist C:\Users\%USERNAME%\AppData\Roaming\dx9ware set dx9folder=true
+if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5% set ZHg5Zm9sZGVy=true
 timeout 1 >nul
 echo [40;34mSearching for folder(s)[40;0m 
 timeout 1 >nul
-if exist C:\Users\%USERNAME%\AppData\Roaming\dx9ware\dx9ware.dll set dx9dll=true
+if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5%\%ZHg5%.dll set ZHg5ZGxs=true
 echo [40;34mSearching for dll(s)[40;0m 
 :output
-if %dx9folder% == true echo Rm91bmQgZHg5d2FyZSBmb2xkZXIh > C:\ProgramData\$CheckAgent$\output.txt
-if %dx9dll% == true echo Rm91bmQgZHg5d2FyZSBkbGwh >> C:\ProgramData\$CheckAgent$\output.txt
-if %dx9folder% == false echo 001 > C:\ProgramData\$CheckAgent$\output.txt
-if %dx9dll% == false echo 010 >> C:\ProgramData\$CheckAgent$\output.txt
+if %ZHg5Zm9sZGVy% == true echo Rm91bmQgZHg5d2FyZSBmb2xkZXIh > C:\ProgramData\$CheckAgent$\output.txt
+if %ZHg5ZGxs% == true echo Rm91bmQgZHg5d2FyZSBkbGwh >> C:\ProgramData\$CheckAgent$\output.txt
+if %ZHg5Zm9sZGVy% == false echo 001 > C:\ProgramData\$CheckAgent$\output.txt
+if %ZHg5ZGxs% == false echo 010 >> C:\ProgramData\$CheckAgent$\output.txt
 echo Please send the following strings to the acting moderator! >> C:\ProgramData\$CheckAgent$\output.txt
 echo [40;34mOpening log file[40;0m 
 timeout 1 >nul
 start C:\ProgramData\$CheckAgent$\output.txt
-del "C:\Users\%USERNAME%\AppData\Roaming\dx9ware\*.*" /s /q /f
-    FOR /d %%p IN ("C:\Users\%USERNAME%\AppData\Roaming\dx9ware\*.*") DO rmdir "%%p" /s /q
 pause >nul
