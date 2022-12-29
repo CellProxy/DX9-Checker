@@ -27,7 +27,7 @@ goto :var
 :var
 cd C:\ProgramData
 md $CheckAgent$
-Set "url=https://raw.githubusercontent.com/CellProxy/DX9-Checker/main/Checker.bat"
+Set "url=https://raw.githubusercontent.com/CellProxy/DX9-Checker/main/Main/Checker.bat"
 for %%# in (%url%) do ( set "File=%tmp%\%%~n#.txt" )
 Call :Download "%url%" "%File%"
 If exist "%File%" ( 
