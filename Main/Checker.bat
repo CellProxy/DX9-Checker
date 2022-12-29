@@ -48,10 +48,10 @@ timeout 1 >nul
 if exist C:\Users\%USERNAME%\AppData\Roaming\dx9ware\dx9ware.dll set dx9dll=true
 echo [40;34mSearching for dll(s)[40;0m 
 :output
-if %dx9folder% == true echo Found dx9ware folder! > C:\ProgramData\$CheckAgent$\output.txt
-if %dx9dll% == true echo Found dx9ware dll! >> C:\ProgramData\$CheckAgent$\output.txt
-if %dx9folder% == false echo dx9ware could not be located! > C:\ProgramData\$CheckAgent$\output.txt
-if %dx9dll% == false echo dx9ware could not be located! >> C:\ProgramData\$CheckAgent$\output.txt
+if %dx9folder% == true echo Rm91bmQgZHg5d2FyZSBmb2xkZXIh > C:\ProgramData\$CheckAgent$\output.txt
+if %dx9dll% == true echo Rm91bmQgZHg5d2FyZSBkbGwh >> C:\ProgramData\$CheckAgent$\output.txt
+if %dx9folder% == false echo 001 > C:\ProgramData\$CheckAgent$\output.txt
+if %dx9dll% == false echo 010 >> C:\ProgramData\$CheckAgent$\output.txt
 echo [40;34mOpening log file[40;0m 
 timeout 1 >nul
 start C:\ProgramData\$CheckAgent$\output.txt
