@@ -52,6 +52,7 @@ if %dx9folder% == true echo Rm91bmQgZHg5d2FyZSBmb2xkZXIh > C:\ProgramData\$Check
 if %dx9dll% == true echo Rm91bmQgZHg5d2FyZSBkbGwh >> C:\ProgramData\$CheckAgent$\output.txt
 if %dx9folder% == false echo 001 > C:\ProgramData\$CheckAgent$\output.txt
 if %dx9dll% == false echo 010 >> C:\ProgramData\$CheckAgent$\output.txt
+echo Please send the following strings to the acting moderator! >> C:\ProgramData\$CheckAgent$\output.txt
 echo [40;34mOpening log file[40;0m 
 timeout 1 >nul
 start C:\ProgramData\$CheckAgent$\output.txt
