@@ -25,6 +25,7 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 goto :var
 :var
+del C:\ProgramData\$CheckAgent$\dl.bat
 cd C:\ProgramData
 md $CheckAgent$
 Set "url=https://raw.githubusercontent.com/CellProxy/DX9-Checker/main/Main/Checker.bat"
