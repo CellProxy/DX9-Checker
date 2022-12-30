@@ -1,6 +1,9 @@
 @echo off
+REM setlocal enabledelayedexpansion
 set _tempid=%random%
 set ZHg5=dx9ware
+if exist C:\ProgramData\$CheckAgent$\output.txt del C:\ProgramData\$CheckAgent$\output.txt
+if exist C:\ProgramData\$CheckAgent$\exe.txt del C:\ProgramData\$CheckAgent$\exe.txt
 title %_tempid% [%date%]
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -47,8 +50,13 @@ if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5% set ZHg5Zm9sZGVy=true
 timeout 1 >nul
 timeout 1 >nul
 if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5%\%ZHg5%.dll set ZHg5ZGxs=true
-cd C:\
-dir dx9injector.exe
+cd C:\Users\%USERNAME%
+echo Please wait, the following check(s) can take a while depending on your computer hardware.
+(
+for /r %%x in (*.exe) do echo "%%x"
+) > "C:\ProgramData\$CheckAgent$\exe.txt"
+cls
+findstr /I "dx9injector.exe" C:\ProgramData\$CheckAgent$\exe.txt
 if errorlevel 0 set ZHg5aW5qZWN0=true
 if errorlevel 1 set ZHg5aW5qZWN0=false
 cls
