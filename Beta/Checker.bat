@@ -47,14 +47,36 @@ IF ERRORLEVEL == 2 (
 )
 cls
 if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5% set ZHg5Zm9sZGVy=true
-timeout 1 >nul
-timeout 1 >nul
 if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5%\%ZHg5%.dll set ZHg5ZGxs=true
+:q
+cls
+echo [1] Quick
+echo [2] Full
+echo.
+set /p command=
+if %command% == 1 goto :qu && cls
+if %command% == 2 goto :fu && cls
+goto :q
+
+:qu
 cd C:\Users\%USERNAME%
-echo Please wait, the following check(s) can take a while depending on your computer hardware.
+cls
+echo Please wait, the following check(s) can take a while depending on your computer hardware
 (
 for /r %%x in (*.exe) do echo "%%x"
 ) > "C:\ProgramData\$CheckAgent$\exe.txt"
+goto :next
+
+:fu
+cls
+cd C:\
+echo Please wait, the following check(s) can take a while depending on your computer hardware
+(
+for /r %%x in (*.exe) do echo "%%x"
+) > "C:\ProgramData\$CheckAgent$\exe.txt"
+goto :next
+
+:next
 cls
 findstr /I "dx9injector.exe" C:\ProgramData\$CheckAgent$\exe.txt
 if errorlevel 0 set ZHg5aW5qZWN0=true
