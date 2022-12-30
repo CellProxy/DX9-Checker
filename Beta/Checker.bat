@@ -45,17 +45,23 @@ IF ERRORLEVEL == 2 (
 cls
 if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5% set ZHg5Zm9sZGVy=true
 timeout 1 >nul
-echo [40;34mSearching for folder(s)[40;0m 
 timeout 1 >nul
 if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5%\%ZHg5%.dll set ZHg5ZGxs=true
+cd C:\
+dir dx9injector.exe
+if errorlevel 0 set ZHg5aW5qZWN0=true
+if errorlevel 1 set ZHg5aW5qZWN0=false
+cls
+echo [40;34mSearching for folder(s)[40;0m 
 echo [40;34mSearching for dll(s)[40;0m 
+echo [40;34mSearching for injector(s)[40;0m 
 :output
 if %ZHg5Zm9sZGVy% == true echo [%time%+%date%] Found Folder > C:\ProgramData\$CheckAgent$\output.txt && echo [40;31mDetected Violation[40;0m 
 if %ZHg5ZGxs% == true echo [%time%+%date%] Found DLL >> C:\ProgramData\$CheckAgent$\output.txt && echo [40;31mDetected Violation[40;0m 
 if %ZHg5aW5qZWN0% == true echo [%time%+%date%] Found Injector!  >> C:\ProgramData\$CheckAgent$\output.txt && echo [40;31mDetected Violation[40;0m 
 if %ZHg5Zm9sZGVy% == false echo [%time%+%date%] Couldn't find Folder > C:\ProgramData\$CheckAgent$\output.txt
 if %ZHg5ZGxs% == false echo [%time%+%date%] Couldn't find DLL >> C:\ProgramData\$CheckAgent$\output.txt
-if %ZHg5aW5qZWN0% == false echo [%time%+%date%] Counldn't find Injector! >> C:\ProgramData\$CheckAgent$\output.txt
+if %ZHg5aW5qZWN0% == false echo [%time%+%date%] Couldn't find Injector! >> C:\ProgramData\$CheckAgent$\output.txt
 echo [40;34mOpening log file[40;0m 
 timeout 1 >nul
 start C:\ProgramData\$CheckAgent$\output.txt
