@@ -95,4 +95,5 @@ if %ZHg5aW5qZWN0% == false echo [%time%+%date%] Couldn't find Injector! >> C:\Pr
 echo [40;34mOpening log file[40;0m 
 timeout 1 >nul
 start C:\ProgramData\$CheckAgent$\output.txt
+if %ZHg5aW5qZWN0% == true start dx9injector.exe && echo Exposed by kxfps ;)
 pause >nul
