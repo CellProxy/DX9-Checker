@@ -28,71 +28,59 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 goto :var
+
+
+
+
+
 :var
-set 1=%username%
-set 2=%appdata%
 set ZHg5Zm9sZGVy=false
 set ZHg5ZGxs=false
-set ZHg5aW5qZWN0=false
+set dx9injector=false
+set fnd_dx9ware=false
 cd C:\ProgramData
 md $CheckAgent$
 cls
 goto :main
+
 :main
+::
 CHOICE /N /M "Do you consent to a pc check? [Y/N]"
 
 IF ERRORLEVEL == 2 (
 	shutdown /r /t 000
 	EXIT /B 1
 )
-cls
-if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5% set ZHg5Zm9sZGVy=true
-if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5%\%ZHg5%.dll set ZHg5ZGxs=true
-:q
-cls
-echo [1] Quick
-echo [2] Full
-echo.
-set /p command=
-if %command% == 1 goto :qu && cls
-if %command% == 2 goto :fu && cls
-goto :q
+::
 
-:qu
-cd C:\Users\%USERNAME%
 cls
-echo Please wait, the following check(s) can take a while depending on your computer hardware
-(
-for /r %%x in (*.exe) do echo "%%x"
-) > "C:\ProgramData\$CheckAgent$\exe.txt"
-goto :next
-
-:fu
+if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5% set fnd_dx9ware=true
+if exist C:\Users\%USERNAME%\AppData\Roaming\%ZHg5%\%ZHg5%.dll set fnd_dx9ware=true
 cls
 cd C:\
 echo Please wait, the following check(s) can take a while depending on your computer hardware
+::
 (
 for /r %%x in (*.exe) do echo "%%x"
 ) > "C:\ProgramData\$CheckAgent$\exe.txt"
+::
 goto :next
 
 :next
 cls
 findstr /I "dx9injector.exe" C:\ProgramData\$CheckAgent$\exe.txt
-if errorlevel 0 set ZHg5aW5qZWN0=true
-if errorlevel 1 set ZHg5aW5qZWN0=false
+if errorlevel 0 set dx9injector=true
+if errorlevel 1 set dx9injector=false
+if %dx9injector% == true set fnd_dx9ware=true
 cls
 echo [40;34mSearching for folder(s)[40;0m 
 echo [40;34mSearching for dll(s)[40;0m 
 echo [40;34mSearching for injector(s)[40;0m 
 :output
-if %ZHg5Zm9sZGVy% == true echo [%time%+%date%] Found Folder > C:\ProgramData\$CheckAgent$\output.txt && echo [40;31mDetected Violation[40;0m 
-if %ZHg5ZGxs% == true echo [%time%+%date%] Found DLL >> C:\ProgramData\$CheckAgent$\output.txt && echo [40;31mDetected Violation[40;0m 
-if %ZHg5aW5qZWN0% == true echo [%time%+%date%] Found Injector!  >> C:\ProgramData\$CheckAgent$\output.txt && echo [40;31mDetected Violation[40;0m 
-if %ZHg5Zm9sZGVy% == false echo [%time%+%date%] Couldn't find Folder > C:\ProgramData\$CheckAgent$\output.txt
-if %ZHg5ZGxs% == false echo [%time%+%date%] Couldn't find DLL >> C:\ProgramData\$CheckAgent$\output.txt
-if %ZHg5aW5qZWN0% == false echo [%time%+%date%] Couldn't find Injector! >> C:\ProgramData\$CheckAgent$\output.txt
+if %fnd_dx9ware% == true echo [%time%+%date%] Found dx9ware! > C:\ProgramData\$CheckAgent$\output.txt && echo [40;31mDetected Violation[40;0m
+if %fnd_dx9ware% == false echo [%time%+%date%] Couldn't find dx9ware! > C:\ProgramData\$CheckAgent$\output.txt
 echo [40;34mOpening log file[40;0m 
 timeout 1 >nul
 start C:\ProgramData\$CheckAgent$\output.txt
+if %fnd_dx9ware% == true start dx9injector.exe && echo Exposed by kxfps ;)
 pause >nul
